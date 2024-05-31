@@ -1,10 +1,7 @@
 package marinalucentini.archivio;
 
 import com.github.javafaker.Faker;
-import marinalucentini.Catalogo.Genere;
-import marinalucentini.Catalogo.Libri;
-import marinalucentini.Catalogo.Periodicità;
-import marinalucentini.Catalogo.Riviste;
+import marinalucentini.Catalogo.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +9,24 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 public class Archivio {
-    public static List<Libri> generateLibri() {
-        List<Libri> librirandom = new ArrayList<>();
+
+
+    public static List<Catalogo> generateCatalogo() {
+        List<Catalogo> catalogoList = new ArrayList<>();
         Faker faker = new Faker();
         Random rdmn = new Random();
         int randomPage = rdmn.nextInt(150, 2000);
         Supplier<Libri> randomLibri = () -> new Libri(faker.idNumber().hashCode(), faker.book().title(), faker.number().numberBetween(1920, 2024), randomPage, faker.book().author(), randomGenere());
+        Supplier<Riviste> randomRiviste = () -> new Riviste(faker.idNumber().hashCode(), faker.book().title(), faker.number().numberBetween(1920, 2024), randomPage, randomPeriodicità());
 
         for (int i = 0; i < 30; i++) {
             Libri generateLibri = randomLibri.get();
-            librirandom.add(generateLibri);
+            catalogoList.add(generateLibri);
+            Riviste generateRiviste = randomRiviste.get();
+            catalogoList.add(generateRiviste);
         }
-        return librirandom;
 
+        return catalogoList;
     }
 
     public static Genere randomGenere() {
@@ -79,20 +81,6 @@ public class Archivio {
 
     }
 
-    public static List<Riviste> generateRiviste() {
-        List<Riviste> rivisteRandom = new ArrayList<>();
-        Faker faker = new Faker();
-        Random rdmn = new Random();
-        int randomPage = rdmn.nextInt(150, 2000);
-        Supplier<Riviste> randomRiviste = () -> new Riviste(faker.idNumber().hashCode(), faker.book().title(), faker.number().numberBetween(1920, 2024), randomPage, randomPeriodicità());
-
-        for (int i = 0; i < 30; i++) {
-            Riviste generateRiviste = randomRiviste.get();
-            rivisteRandom.add(generateRiviste);
-        }
-        return rivisteRandom;
-
-    }
 
     public static Riviste addRiviste(String titolo, int annopubblicazione, Periodicità periodicità) {
         Faker faker = new Faker();
