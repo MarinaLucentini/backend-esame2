@@ -34,7 +34,9 @@ public class Libri extends Catalogo {
                 "autore='" + autore + '\'' +
                 ", genere=" + genere + '\'' +
                 "anno pubblicazione= " + getAnnoPubblicazione() + '\''
-                + "Numero pagine= " + getnPagine() + "}"
+                + "Numero pagine= " + getnPagine() +
+                "Codice" + getCodiceIsbn() +
+                "}"
                 ;
     }
 }

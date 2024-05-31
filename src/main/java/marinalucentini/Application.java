@@ -108,6 +108,7 @@ public class Application {
                 break;
             }
         }
+        Archivio.remove(catalogoList, 1608446010);
 
 
     }

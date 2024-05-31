@@ -98,4 +98,10 @@ public class Archivio {
         return libroToAdd;
     }
 
+    public static void remove(List<Catalogo> catalogoList, int codiceId) {
+        Catalogo elementoDaRimuovere = catalogoList.stream().filter(elemento -> elemento.getCodiceIsbn() == codiceId).toList().getFirst();
+        catalogoList.remove(elementoDaRimuovere);
+        System.out.println("Hai rimosso l'emento" + elementoDaRimuovere + "con successo");
+    }
+
 }
