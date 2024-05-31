@@ -141,7 +141,7 @@ public class Archivio {
     }
 
     public static void addFile(List<Catalogo> catalogoList) {
-        File file = new File("src/listaCatalogo.txt"); // Creo un riferimento alla posizione nelle cartelle del file
+        File file = new File("src/listaCatalogo.txt");
 
         try {
             List<Catalogo> catalogo = catalogoList;
