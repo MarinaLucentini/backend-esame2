@@ -5,7 +5,7 @@ public class Libri extends Catalogo {
     Genere genere;
 
 
-    public Libri(int codiceIsbn, String titolo, String annoPubblicazione, int nPagine, String autore, Genere genere) {
+    public Libri(int codiceIsbn, String titolo, int annoPubblicazione, int nPagine, String autore, Genere genere) {
         super(codiceIsbn, titolo, annoPubblicazione, nPagine);
         this.autore = autore;
         this.genere = genere;
@@ -30,11 +30,11 @@ public class Libri extends Catalogo {
 
     @Override
     public String toString() {
-        return "Titolo= " + getTitolo() + '\'' +
+        return "Libri{" + "Titolo= " + getTitolo() + '\'' +
                 "autore='" + autore + '\'' +
                 ", genere=" + genere + '\'' +
                 "anno pubblicazione= " + getAnnoPubblicazione() + '\''
-                + "Numero pagine= " + getnPagine()
+                + "Numero pagine= " + getnPagine() + "}"
                 ;
     }
 }

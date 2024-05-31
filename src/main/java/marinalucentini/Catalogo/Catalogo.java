@@ -3,10 +3,10 @@ package marinalucentini.Catalogo;
 public abstract class Catalogo {
     private int codiceIsbn;
     private String titolo;
-    private String annoPubblicazione;
+    private int annoPubblicazione;
     private int nPagine;
 
-    public Catalogo(int codiceIsbn, String titolo, String annoPubblicazione, int nPagine) {
+    public Catalogo(int codiceIsbn, String titolo, int annoPubblicazione, int nPagine) {
         this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
@@ -27,11 +27,11 @@ public abstract class Catalogo {
         this.titolo = titolo;
     }
 
-    public String getAnnoPubblicazione() {
+    public int getAnnoPubblicazione() {
         return annoPubblicazione;
     }
 
-    public void setAnnoPubblicazione(String annoPubblicazione) {
+    public void setAnnoPubblicazione(int annoPubblicazione) {
         this.annoPubblicazione = annoPubblicazione;
     }
 

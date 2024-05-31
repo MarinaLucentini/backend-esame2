@@ -4,7 +4,7 @@ public class Riviste extends Catalogo {
     private Periodicità periodicità;
 
 
-    public Riviste(int codiceIsbn, String titolo, String annoPubblicazione, int nPagine, Periodicità periodicità) {
+    public Riviste(int codiceIsbn, String titolo, int annoPubblicazione, int nPagine, Periodicità periodicità) {
         super(codiceIsbn, titolo, annoPubblicazione, nPagine);
         this.periodicità = periodicità;
     }
@@ -20,6 +20,7 @@ public class Riviste extends Catalogo {
     @Override
     public String toString() {
         return "Riviste{" +
+                "Titolo= " + getTitolo() + "anno di pubblicazione= " + getAnnoPubblicazione() + "Numero di pagine= " + getnPagine() +
                 "periodicità=" + periodicità +
                 '}';
     }
