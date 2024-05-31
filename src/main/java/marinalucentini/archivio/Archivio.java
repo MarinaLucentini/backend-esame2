@@ -3,9 +3,7 @@ package marinalucentini.archivio;
 import com.github.javafaker.Faker;
 import marinalucentini.Catalogo.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class Archivio {
@@ -99,9 +97,44 @@ public class Archivio {
     }
 
     public static void remove(List<Catalogo> catalogoList, int codiceId) {
-        Catalogo elementoDaRimuovere = catalogoList.stream().filter(elemento -> elemento.getCodiceIsbn() == codiceId).toList().getFirst();
-        catalogoList.remove(elementoDaRimuovere);
-        System.out.println("Hai rimosso l'emento" + elementoDaRimuovere + "con successo");
+        try {
+            Catalogo elementoDaRimuovere = catalogoList.stream().filter(elemento -> elemento.getCodiceIsbn() == codiceId).toList().getFirst();
+            catalogoList.remove(elementoDaRimuovere);
+            System.out.println("Hai rimosso l'emento" + elementoDaRimuovere + "con successo");
+        } catch (NoSuchElementException e) {
+            System.out.println("Non esiste questo elemento");
+        }
+
     }
+
+    public static void ricercaPerId(List<Catalogo> catalogoList, int codiceId) {
+        try {
+            Catalogo elementoDaCercare = catalogoList.stream().filter(elemento -> elemento.getCodiceIsbn() == codiceId).toList().getFirst();
+            System.out.println("Hai trovato l'emento" + elementoDaCercare);
+        } catch (NoSuchElementException e) {
+            System.out.println("Non esiste questo elemento");
+        }
+
+    }
+
+    public static void ricercaPeranno(List<Catalogo> catalogoList, int anno) {
+        try {
+            Catalogo elementoDaCercare = catalogoList.stream().filter(elemento -> elemento.getAnnoPubblicazione() == anno).toList().getFirst();
+            System.out.println("Hai trovato l'emento" + elementoDaCercare);
+        } catch (NoSuchElementException e) {
+            System.out.println("Non esiste questo elemento");
+        }
+
+    }
+
+    public static void ricercaAutore(List<Catalogo> catalogoList, String autore) {
+        try {
+            Libri elementoDaCercare = (Libri) catalogoList.stream().filter(elemento -> elemento instanceof Libri).filter(elemento -> Objects.equals(((Libri) elemento).getAutore(), autore)).toList().getFirst();
+            System.out.println("Hai trovato l'emento" + elementoDaCercare);
+        } catch (NoSuchElementException e) {
+            System.out.println("Non esiste questo elemento");
+        }
+    }
+
 
 }

@@ -108,8 +108,10 @@ public class Application {
                 break;
             }
         }
-        Archivio.remove(catalogoList, 1608446010);
 
+        Archivio.ricercaPerId(catalogoList, 160846010);
+        Archivio.ricercaPeranno(catalogoList, 2005);
+        Archivio.ricercaAutore(catalogoList, "Frida O'Hara");
 
     }
 }
