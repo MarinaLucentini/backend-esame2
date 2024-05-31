@@ -112,6 +112,7 @@ public class Application {
         Archivio.ricercaPerId(catalogoList, 160846010);
         Archivio.ricercaPeranno(catalogoList, 2005);
         Archivio.ricercaAutore(catalogoList, "Frida O'Hara");
+        Archivio.addFile(catalogoList);
 
     }
 }
